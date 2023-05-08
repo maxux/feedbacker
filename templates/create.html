@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% set activepage = "home" %}
+{% block title %}Feedback Collector{% endblock %}
+
+{% block content %}
+<h1 class="border-bottom border-muted">Create a feedback group</h1>
+
+<form class="needs-validation" novalidate method="post" action="/create">
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="name" class="form-label">Feedback Name</label>
+            <input type="text" class="form-control first-input" name="name" id="name" required>
+            <div class="invalid-feedback">Valid feedback name is required.</div>
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-sm-6">
+            <button class="btn btn-primary" type="submit">Create Feedback</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

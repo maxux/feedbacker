@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% set activepage = "home" %}
+{% block title %}Feedback Collector{% endblock %}
+
+{% block content %}
+<h1 class="border-bottom border-muted">{{ name }}</h1>
+
+<form class="needs-validation" novalidate method="post" action="/fill/{{ gid }}">
+    <div class="row">
+        <div class="col">
+            <label for="feedback" class="form-label">Leave a feedback</label>
+            <textarea class="form-control first-input" name="feedback" id="feedback" required></textarea>
+            <div class="invalid-feedback">A feedback is required.</div>
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-sm-6">
+            <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

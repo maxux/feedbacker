@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% set activepage = "home" %}
+{% block title %}Feedback Collector{% endblock %}
+
+{% block content %}
+<h1 class="border-bottom border-muted">Manage a feedback group</h1>
+
+{% if error == "login" %}
+<p class="alert alert-danger">Invalid credentials</p>
+{% endif %}
+
+<form class="needs-validation" novalidate method="post" action="/login">
+    <div class="row">
+        <div class="col-sm-6">
+            <label for="id" class="form-label">Feedback ID</label>
+            <input type="text" class="form-control first-input" name="id" id="id" required>
+            <div class="invalid-feedback">Valid feedback name is required.</div>
+        </div>
+
+        <div class="col-sm-6">
+            <label for="token" class="form-label">Feedback Token</label>
+            <input type="text" class="form-control" name="token" id="token" required>
+            <div class="invalid-feedback">Valid feedback name is required.</div>
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-sm-6">
+            <button class="btn btn-primary" type="submit">Manage Feedback</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
