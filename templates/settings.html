@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% set activepage = "home" %}
+{% block title %}Feedback Collector - {{ name }}{% endblock %}
+
+{% block content %}
+<h1 class="border-bottom border-muted">{{ name }}</h1>
+
+<form class="needs-validation" novalidate method="post" action="/login/{{ id }}/{{ token }}/settings">
+
+    <div class="p-2">
+        <h2>Greeting message</h2>
+
+        The greeting message is the text visible before the form.
+        {% if greeting %}
+        <textarea name="greeting" id="greeting" class="form-control">{{ greeting }}</textarea>
+        {% else %}
+        <textarea name="greeting" id="greeting" class="form-control"></extarea>
+        {% endif %}
+    </div>
+
+    <div class="p-2">
+        <h2>Primary color</h2>
+
+        <label for="color" class="form-label">Select primary color, this will be background color.</label>
+        {% if color %}
+        <input type="color" class="form-control form-control-color" id="color" name="color" value="{{ color }}" title="Choose your color">
+        {% else %}
+        <input type="color" class="form-control form-control-color" id="color" name="color" value="#ffffff" title="Choose your color">
+        {% endif %}
+    </div>
+
+    <div class="row pt-3">
+        <div class="col-sm-6">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

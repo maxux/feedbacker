@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% set activepage = "home" %}
-{% block title %}Feedback Collector{% endblock %}
+{% block title %}Feedback Collector - {{ name }}{% endblock %}
 
 {% block content %}
 <h1 class="border-bottom border-muted">{{ name }}</h1>
@@ -12,6 +12,7 @@ Feedback credentials and information:
     <li>Token: <code>{{ token }}</code></li>
     <li>Feedback URL: <a target="_blank" href="/fill/{{ id }}">direct link</a></li>
     <li>Manage URL: <a target="_blank" href="/login/{{ id }}/{{ token }}">direct link to manager (save it)</a></li>
+    <li><a href="/login/{{ id }}/{{ token }}/settings">Change feedback settings</a></li>
 </ul>
 </div>
 
