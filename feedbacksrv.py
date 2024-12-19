@@ -49,6 +49,11 @@ class Feedbacker:
                 autocommit=True
             )
 
+        @self.app.after_request
+        def after_request_handler(response):
+            g.db.close()
+            return response
+
         @self.app.route('/fill/<gid>', methods=['GET', 'POST'])
         def feedback_fill(gid):
             cursor = g.db.cursor()
